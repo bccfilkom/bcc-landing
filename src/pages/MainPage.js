@@ -10,6 +10,7 @@ const Row = styled.div`
 	overflow: hidden;
 	display: flex;
 	flex-direction: row;
+	margin: auto;
 
 	@media (max-width: 992px) {
 		flex-direction: column;
@@ -44,6 +45,8 @@ const Image = styled.img`
 	user-drag: none;
 	opacity: 0;
 	transition: all 400ms ease-out;
+	width: 438px;
+	margin-right: 30px;
 
 	&.entered {
 		opacity: 1;
@@ -62,6 +65,7 @@ const Logo = styled.img`
 	margin-bottom: 15px;
 	user-select: none;
 	user-drag: none; 
+	width: 438px;
 
 	@media (min-width: 993px) {
 		display: none;
@@ -103,6 +107,7 @@ const Text = styled.p`
 	opacity: 0;
 	transform: translate(0, 50px);
 	transition: all 700ms ease-out;
+	width: 300px;
 	
 	&.entered {
 		opacity: 1;
@@ -127,9 +132,9 @@ class MainPage extends Component {
 						{(state) => {
 							return (
 								<HeadingWrapper className={state}>
-									<Heading>BASIC</Heading>
-									<Heading>COMPUTING</Heading>
-									<Heading>COMMUNITY</Heading>
+									<Heading>BCC</Heading>
+									<Heading>OPEN</Heading>
+									<Heading>RECRUITMENT</Heading>
 								</HeadingWrapper>
 							)
 						}}
@@ -138,10 +143,7 @@ class MainPage extends Component {
 						{(state) => {
 							return (
 								<Text className={state}>
-									BCC merupakan komunitas yang berada dibawah naungan
-									Laboratorium Pembelajaran Ilmu Komputer
-									Universitas Brawijaya yang bergerak
-									dibidang teknologi.
+									COMING SOON
 								</Text>
 							)
 						}}
