@@ -148,13 +148,6 @@ class MainPage extends Component {
 							)
 						}}
 					</Transition>
-					<Transition in={this.props.in} timeout={300}>
-						{(state) => {
-							return (
-								<ScrollButton className={state} press={() => this.props.scroll()} />
-							)
-						}}
-					</Transition>
 				</Column>
 				<ColumnFirst>
 					<Transition in={this.props.in} timeout={0}>
