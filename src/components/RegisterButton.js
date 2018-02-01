@@ -54,6 +54,11 @@ const ArrowDownIcon = styled(ArrowDown) `
 const Text = styled.span`
 	user-select: none;
 `
+
+const urlTambah = 'http://localhost/bcc/tambah'
+const urlNIM = 'http://localhost/bcc/nim'
+const authId = '45213f72fb410e57248daa2bcb073cd6'
+
 class RegisterButton extends Component {
 	constructor(props) {
 		super(props)
@@ -70,7 +75,7 @@ class RegisterButton extends Component {
 	}
 	handleClick() {
 		var props = this.props
-		console.log(props.NIM.length)
+		var uNIM = urlNIM
 		if	(props.NIM.length == 0 ){
 			toast.error('Harap isi NIM anda terlebih dahulu!', {
 				position: toast.POSITION.BOTTOM_RIGHT,
@@ -78,12 +83,12 @@ class RegisterButton extends Component {
 				pauseOnHover: false,
 			})
 		}else{
-			var wind = window.open('http://bem.filkom.ub.ac.id/auth/?auth_id=45213f72fb410e57248daa2bcb073cd6&last_page=http://localhost/bcc/tambah', 'newwindow', 'width=400,height=550,left=100,top=100')
+			var wind = window.open('http://bem.filkom.ub.ac.id/auth/?auth_id=' + authId + '&last_page=' + urlTambah, 'newwindow', 'width=400,height=550,left=100,top=100')
 			var timer = setInterval(function(){
 				if (wind.closed) {
 					var querystring = require('querystring')
 					var self = this
-					axios.post('http://localhost/bcc/nim',
+					axios.post(uNIM,
 						querystring.stringify({ nim: props.NIM })
 					).then(function (response) {
 						if(response.data.length == 0){
