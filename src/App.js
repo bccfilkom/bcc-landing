@@ -7,6 +7,8 @@ import BCCResearch from './pages/BCCResearch'
 import Tutorial from './pages/Tutorial'
 import Berita from './pages/Berita'
 import Kontak from './pages/Kontak'
+import OfficialAccount from './pages/OfficialAccount'
+import Daftar from './pages/Daftar'
 import Departemen from './pages/Departemen'
 import Navigation from './Navigation'
 import theme from './themes/default'
@@ -57,6 +59,7 @@ class App extends Component {
 			show: [false, false, false, false, false, false, false],
 			scrollY: 0,
 			scrolling: false,
+			nama: '',
 		}
 	}
 
@@ -171,19 +174,23 @@ class App extends Component {
 		}, 1000)
 	}
 
+	updateName(a){
+		this.setState({nama: a})
+	}
 	render() {
 		return (
 			<ThemeProvider theme={theme}>
 				<Root>
 					<Logo src="/assets/Logo/bcc-logo-vertical-fit-complete.png" />
 					<Wrapper ref={(div) => { this.wrapper = div }} activePage={this.state.activePage}>
-						<MainPage in={this.state.show[0]} scroll={() => this.navPage(0, 1)}/>
+						<Daftar in={this.state.show[0]} scroll={() => this.navPage(0, 7)} updateName={(a) => this.updateName(a)}/>
 						<Misi in={this.state.show[1]} />
 						<Departemen in={this.state.show[2]} />
 						<BCCResearch in={this.state.show[3]} />
 						<Tutorial in={this.state.show[4]} />
 						<Berita in={this.state.show[5]} />
 						<Kontak in={this.state.show[6]} />
+						<OfficialAccount in={this.state.show[7]} username={this.state.nama} />
 					</Wrapper>
 					<Navigation currentPage={this.state.activePage} changePage={(a, b) => this.navPage(a, b)}/>
 				</Root>
