@@ -140,6 +140,9 @@ class App extends Component {
 		}, 1000)
 	}
 
+	
+	
+	
 	updatePage(page, key) {		
 		let items = this.state.show.slice(0)
 		items[page] = false
